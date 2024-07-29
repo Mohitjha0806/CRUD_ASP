@@ -1,7 +1,7 @@
 CREATE DATABASE workers_DB;
 
 
-CREATE TABLE tbl_workers 
+CREATE TABLE tbl_workers
 (
 ID INT PRIMARY KEY IDENTITY(1,1),
 FIRST_NAME VARCHAR(20),
@@ -34,3 +34,40 @@ VALUES
 END;
 
 SELECT * FROM tbl_workers
+
+
+CREATE PROC workerDataGrid
+
+AS
+BEGIN
+SELECT * FROM tbl_workers
+END;
+
+
+CREATE PROC workerDelete
+@ID INT
+AS
+BEGIN
+Delete from tbl_workers where id = @ID
+END;
+
+
+alter PROC workerUpdate
+@ID INT,
+@FIRST_NAME VARCHAR(20),
+@LAST_NAME VARCHAR(20),
+@AGE INT,
+@SALARY INT,
+@PHONE VARCHAR(20)
+AS
+BEGIN
+UPDATE tbl_workers 
+SET 
+FIRST_NAME = @FIRST_NAME,
+LAST_NAME = @LAST_NAME,
+AGE = @AGE,
+SALARY = @SALARY,
+Phone = @PHONE
+where id = @ID
+END;
+

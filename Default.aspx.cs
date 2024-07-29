@@ -7,13 +7,14 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
- if (!IsPostBack)
- {
-     GetData();
- }
-    }
+           protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                GetData();
+            }
+        }
+
         private void GetData()
         {
             string cs = "Server=DESKTOP-MCN1KET;Database=workers_DB;Integrated Security=True;";
